@@ -69,6 +69,7 @@ const convert = (dbObject) => {
     matchId: dbObject.match_id,
     match: dbObject.match,
     role: dbObject.role,
+    year: dbObject.year,
   };
 };
 
@@ -86,7 +87,7 @@ app.get("/players/:playerId/matches", async (request, response) => {
 app.get("/matches/:matchId/players", async (request, response) => {
   const { matchId } = request.params;
   const getListOfPlayers = `SELECT player_details.player_id AS playerId,
-	      player_details.player_name AS playerName
+        player_details.player_name AS playerName
 	    FROM player_match_score NATURAL JOIN player_details
         WHERE match_id=${matchId};`;
   const playersResponse = await db.get(getListOfPlayers);

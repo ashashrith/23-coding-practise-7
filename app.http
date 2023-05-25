@@ -5,6 +5,12 @@ GET http://localhost:3005/players/:playerId/
 
 ###
 PUT http://localhost:3005/players/:playerId/
+Content-Type: application/json
+
+{
+  "playerName": "Raju"
+}
+
 
 ###
 GET http://localhost:3005/matches/:matchId/
